@@ -1,17 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import apiWorker from '../../utils/apiWorker';
+import React from 'react';
 
-const InfoPost = ({navigate}) => {
-
-    useEffect(
-        () => {
-            console.log(navigate);
-        }
-    );
+const InfoPost = () => {
 
     return (
         <div className={"ListItems InfoPost"}>
-            111
+            11111
         </div>
     );
 

@@ -1,12 +1,11 @@
 import React from 'react';
-import Sidebar from "../components/Sidebar";
 import InfoPost from "../components/InfoPost";
+import Content from "../components/Content/Content";
 
 export default (nav) => {
     return (
-        <div className={"Dictionary_Content"}>
-            <Sidebar/>
+        <Content>
             <InfoPost navigate={nav}/>
-        </div>
+        </Content>
     );
 };

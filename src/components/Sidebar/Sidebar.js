@@ -1,26 +1,32 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
-import {inject, observer} from "mobx-react";
+import {NavLink, Link} from "react-router-dom";
 import Icon from "../Icon";
+import {connect} from "react-redux";
 
-export default inject('store')(observer(({store}) => {
+ const Sidebar = ({sidebar}) => {
     return (
         <div className="SidebarContainer">
             <div className={"Sidebar"}>
                 {
-                    store.sidebarMenu.map((item, index) => {
+                    sidebar.map((item, index) => {
                         return (
-                            <NavLink to={`/dictionary/${item.url}`} key={index}>
+                            <NavLink to={`/d/${item.url}`} key={index}>
                                 <Icon.MIcon {...item.icon}/>
                                 {item.title}
                             </NavLink>
                         )
                     })
                 }
-                <a href="#" key={1337} className={"AddButton"}>
+                <Link to="/addsay" key={1337} className={"AddButton"}>
                     <Icon.MIcon nameIcon={"add-circle-outline"} fS={22}/>Пополнить словарь
-                </a>
+                </Link>
             </div>
         </div>
     );
-}));
+};
+
+ const mapStateToProps = ({sidebar}) => {
+     return {sidebar}
+ };
+
+export default connect(mapStateToProps)(Sidebar)

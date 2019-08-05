@@ -1,12 +1,17 @@
 import React from 'react';
-import Sidebar from "../components/Sidebar/Sidebar";
 import ListItems from "../components/ListItems/ListItems";
+import Content from "../components/Content/Content";
+import SelectCategory from "../components/SelectCategory";
 
 export default ({match}) => {
+    const {category} = match.params;
     return (
-        <div className={"Dictionary_Content"}>
-            <Sidebar/>
-            <ListItems match={match} />
-        </div>
+        <Content>
+            {
+                category
+                    ? <ListItems match={match} />
+                    : <SelectCategory/>
+            }
+        </Content>
     );
 };

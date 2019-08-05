@@ -4,9 +4,9 @@ import Header from "../Header";
 
 import Home from "../../pages/Home";
 import Dictionary from "../../pages/Dictionary";
-import NoDictionary from "../../pages/NoDictionary";
 import Contacts from "../../pages/Contacts";
 import Post from "../../pages/Post";
+import AddSay from "../../pages/AddSay";
 
 export default class HomePage extends Component {
     render () {
@@ -15,9 +15,10 @@ export default class HomePage extends Component {
                 <Header/>
                 <div className="container content">
                     <Route path="/" exact component={Home} />
-                    <Route path="/dictionary/" exact component={NoDictionary} />
-                    <Route path="/dictionary/:category" exact component={Dictionary} />
-                    <Route path="/dictionary/:category/:idPost" exact component={Post} />
+                    <Route path="/addsay" exact component={AddSay} />
+                    <Route path="/d/" exact component={Dictionary} />
+                    <Route path="/d/:category" exact component={Dictionary} />
+                    <Route path="/d/:category/:idPost" exact component={Post} />
                     <Route path="/contacts/" component={Contacts} />
                 </div>
             </Router>
