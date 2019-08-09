@@ -7,8 +7,15 @@ import Dictionary from "../../pages/Dictionary";
 import Contacts from "../../pages/Contacts";
 import Post from "../../pages/Post";
 import AddSay from "../../pages/AddSay";
+import {connect} from "react-redux";
+import {setPosts} from "../../actions/postsActions";
 
-export default class HomePage extends Component {
+class HomePage extends Component {
+
+    componentDidMount() {
+        this.props.setPosts()
+    }
+
     render () {
         return (
             <Router>
@@ -24,4 +31,6 @@ export default class HomePage extends Component {
             </Router>
         );
     }
-};
+}
+
+export default connect(null, {setPosts})(HomePage);

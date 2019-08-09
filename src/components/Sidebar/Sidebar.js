@@ -2,11 +2,15 @@ import React from 'react';
 import {NavLink, Link} from "react-router-dom";
 import Icon from "../Icon";
 import {connect} from "react-redux";
+import {setCurrentPage} from '../../actions/postsActions';
 
- const Sidebar = ({sidebar}) => {
+ const Sidebar = ({sidebar, setCurrentPage}) => {
+
+     const onHandler = () => setCurrentPage(1);
+
     return (
         <div className="SidebarContainer">
-            <div className={"Sidebar"}>
+            <div className={"Sidebar"} onClick={onHandler}>
                 {
                     sidebar.map((item, index) => {
                         return (
@@ -29,4 +33,4 @@ import {connect} from "react-redux";
      return {sidebar}
  };
 
-export default connect(mapStateToProps)(Sidebar)
+export default connect(mapStateToProps, {setCurrentPage})(Sidebar)

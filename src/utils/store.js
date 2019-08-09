@@ -6,11 +6,18 @@ const initialState = {
         {title: 'Программирование', url: "Программирование", icon: {nameIcon: 'code', fS: 22}},
         {title: 'Дизайн', url: "Дизайн", icon: {nameIcon: 'brush', fS: 22}},
         {title: 'Хаккинг', url: "Хаккинг", icon: {nameIcon: 'code-working', fS: 22}},
-    ]
+    ],
+    posts: [],
+    currentPage: 1,
+    numberOnPage: 2
 };
 
 function reducer(state = initialState, action) {
     switch (action.type) {
+        case "SET:POSTS":
+            return Object.assign({}, state, {posts: action.payload});
+        case "SET:CURRENT_PAGE":
+            return Object.assign({}, state, {currentPage: action.payload});
         default:
             return state;
     }
