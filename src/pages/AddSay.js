@@ -1,17 +1,23 @@
 import React from 'react';
 import Content from "../components/Content";
+import Form from '../components/Form';
+import {connect} from "react-redux";
 
-const AddSay = () => {
+const AddSay = ({sidebar}) => {
     return (
         <Content>
-            <div className="ListItems">
-                <h1>Добавьте слово</h1>
-                <form>
-
-                </form>
+            <div className="ListItems addSay">
+                <h2>Добавьте слово</h2>
+                <Form
+                    inputs={[{name: 'title', placeholder: 'Название', icon: 'document', validityLength: 2}, {name: 'body', placeholder: 'Описание', icon: 'quote', validityLength: 100}]}
+                    selects={[{name: 'category',  placeholder: 'Категория', elements: sidebar}]}/>
             </div>
         </Content>
     );
 };
 
-export default AddSay;
+const mapStateToProps = ({sidebar}) => {
+    return {sidebar}
+};
+
+export default connect(mapStateToProps)(AddSay);

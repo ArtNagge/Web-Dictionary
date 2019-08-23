@@ -23,7 +23,7 @@ const ListItems = (props) => {
     }
 
     const changePost = (event) => {
-        setCurrentPage(event.target.id)
+        setCurrentPage(+event.target.id)
     };
 
     return (
@@ -51,13 +51,13 @@ const ListItems = (props) => {
             }
             {numbersPages.length > 1 && <ul className={'pagination'}>
                 {numbersPages.map((item, index) => (
-                    <li onClick={changePost} key={item+index} id={item}>
+                    <li onClick={changePost} className={item === currentPage ? 'active' : null } key={item+index} id={item}>
                         {item}
                     </li>
                 ))}
             </ul>}
         </div>
-    );
+    )
 };
 
 const mapStateToProps = ({posts, currentPage, numberOnPage}) => {

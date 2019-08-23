@@ -9,7 +9,7 @@ const initialState = {
     ],
     posts: [],
     currentPage: 1,
-    numberOnPage: 2
+    numberOnPage: 5
 };
 
 function reducer(state = initialState, action) {
