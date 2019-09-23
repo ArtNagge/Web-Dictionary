@@ -7,6 +7,8 @@ import Dictionary from "../../pages/Dictionary";
 import Contacts from "../../pages/Contacts";
 import Post from "../../pages/Post";
 import AddSay from "../../pages/AddSay";
+import Report from "../../pages/Report";
+
 import {connect} from "react-redux";
 import {setPosts} from "../../actions/postsActions";
 
@@ -27,6 +29,7 @@ class HomePage extends Component {
                     <Route path="/d/:category" exact component={Dictionary} />
                     <Route path="/d/:category/:idPost" exact component={Post} />
                     <Route path="/contacts/" component={Contacts} />
+                    <Route path="/report/:id" component={Report} />
                 </div>
             </Router>
         );

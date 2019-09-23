@@ -25,28 +25,27 @@ const ListItems = (props) => {
     const changePost = (event) => {
         setCurrentPage(+event.target.id)
     };
-
     return (
         <div className={"ListItems"}>
             {
                 returnPosts.map((item, index) => (
-                    <Link to={'/d/' + category + '/' + item.id} key={index}>
-                        <div className={"TermBlock"}>
-                            <span className={"TermBlock_title"}>{item.title.substr(0, 20)}</span>
-                            <p className={"TermBlock_description"}>
-                                <Icon.MIcon nameIcon={"quote"} id={"QuoteBefore"} />
-                                {
-                                    item.description.length > 200
-                                        ? `${item.description.slice(0, 197)}...`
-                                        : item.description
-                                }
-                                <Icon.MIcon nameIcon={"quote"} id={"QuoteAfter"} />
-                            </p>
-                            <div className={"TermBlock_buttons"}>
-                                <Chip title={"Подробнее"} color={'green'} icon={"more"} />
-                            </div>
-                        </div>
-                    </Link>
+                  <Link to={'/d/' + category + '/' + item._id} key={index}>
+                    <div className={"TermBlock"}>
+                      <span className={"TermBlock_title"}>{item.title.substr(0, 20)}</span>
+                      <p className={"TermBlock_description"}>
+                        <Icon.MIcon nameIcon={"quote"} id={"QuoteBefore"} />
+                        {
+                          item.description.length > 200
+                            ? `${item.description.slice(0, 197)}...`
+                            : item.description
+                        }
+                        <Icon.MIcon nameIcon={"quote"} id={"QuoteAfter"} />
+                      </p>
+                      <div className={"TermBlock_buttons"}>
+                        <Chip title={"Подробнее"} color={'green'} icon={"more"} />
+                      </div>
+                    </div>
+                  </Link>
                 ))
             }
             {numbersPages.length > 1 && <ul className={'pagination'}>
